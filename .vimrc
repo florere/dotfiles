@@ -1,10 +1,15 @@
-set nocompatible hidden noswapfile clipboard=unnamed | syntax on
+set nocompatible hidden noswapfile backspace=indent,eol,start clipboard=unnamed | syntax on
 set timeoutlen=1000 ttimeoutlen=0 noerrorbells visualbell t_vb=
 set tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent smartindent textwidth=0
 set incsearch hlsearch ignorecase smartcase
 set wildmenu wildmode=list:longest,full wildignorecase wildcharm=<c-z>
 set number cursorline laststatus=2 scrolloff=10
 set list listchars=tab:\|\ 
+
+set undofile undodir=~/.vim/.undo,/tmp
+if !isdirectory($HOME."/.vim/.undo")
+    call mkdir($HOME."/.vim/.undo", "", 0770)
+endif
 
 nnoremap <esc><esc> :nohlsearch<cr>
 nnoremap <tab> :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<c-z>
