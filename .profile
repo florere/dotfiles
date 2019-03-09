@@ -9,7 +9,7 @@ function gitbranch {
   [[ ! -z $branch ]] && echo " ${branch}" || echo ""
 }
 
-export PS1="\e[34m\w\e[0m\e[32m\$(gitbranch)\e[37m \$\e[0m\e[0m "
+export PS1="\[\e[34m\]\w\[\e[m\]\[\e[32m\]\$(gitbranch)\[\e[m\]\[\e[37m\] \$\[\e[m\] "
 export HISTCONTROL=ignoreboth:erasedups
 
 bind "set completion-ignore-case on"
