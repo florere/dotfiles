@@ -30,6 +30,5 @@ Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
 let g:ale_linters = { 'javascript': ['eslint'] }
-nnoremap J :ALENextWrap<cr>
 set background=light
 colorscheme PaperColor
