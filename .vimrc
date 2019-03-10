@@ -4,20 +4,16 @@ set tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent smartindent textwi
 set incsearch hlsearch ignorecase smartcase
 set wildmenu wildmode=list:longest,full wildignorecase wildcharm=<c-z>
 set number cursorline laststatus=2 scrolloff=10
+set undofile undodir=/tmp
 set list listchars=tab:\|\ 
 
-set undofile undodir=~/.vim/.undo,/tmp
-if !isdirectory($HOME."/.vim/.undo")
-    call mkdir($HOME."/.vim/.undo", "", 0770)
-endif
-
 nnoremap <esc><esc> :nohlsearch<cr>
-nnoremap <tab> :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<c-z>
-nnoremap <space> :ls<cr>:b<space>
+nnoremap <tab> :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<c-z>*
 nnoremap <bs> :buffer#<cr>
-nnoremap ù `^
 inoremap <expr> <tab> (col('.') > 1 && strpart(getline('.'), col('.') - 2, 3) =~ '^\w') ?  "\<c-n>" :  "\<tab>"
 inoremap <expr> <s-tab> (col('.') > 1 && strpart(getline('.'), col('.') - 2, 3) =~ '^\w') ?  "\<c-p>" :  "\<tab>"
+
+" -----------------------------------------------------------------------------------
 
 " if empty(glob('~/.vim/autoload/plug.vim'))
 "   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
