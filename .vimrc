@@ -13,8 +13,7 @@ nnoremap <bs> :buffer#<cr>
 inoremap <expr> <tab> (col('.') > 1 && strpart(getline('.'), col('.') - 2, 3) =~ '^\w') ?  "\<c-n>" :  "\<tab>"
 inoremap <expr> <s-tab> (col('.') > 1 && strpart(getline('.'), col('.') - 2, 3) =~ '^\w') ?  "\<c-p>" :  "\<tab>"
 
-" -----------------------------------------------------------------------------------
-
+" " -----------------------------------------------------------------------------------
 " if empty(glob('~/.vim/autoload/plug.vim'))
 "   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
 "     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -24,10 +23,12 @@ inoremap <expr> <s-tab> (col('.') > 1 && strpart(getline('.'), col('.') - 2, 3) 
 " call plug#begin('~/.vim/plugged')
 " Plug 'w0rp/ale'
 " Plug 'tpope/vim-fugitive'
-" Plug 'junegunn/seoul256.vim'
-" Plug 'NLKNguyen/papercolor-theme'
+" Plug 'lifepillar/vim-solarized8'
 " call plug#end()
 "
 " let g:ale_linters = { 'javascript': ['eslint'] }
-" set background=light
-" colorscheme PaperColor
+" set termguicolors
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" set background=dark
+" colorscheme solarized8
