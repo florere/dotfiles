@@ -49,6 +49,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'avlasyuk/seoul256.vim'
+Plug 'KKPMW/distilled-vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'sheerun/vim-polyglot'
 call plug#end()
