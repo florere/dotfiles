@@ -13,16 +13,10 @@ set list listchars=tab:\|\
 nnoremap <esc><esc> :nohlsearch<cr>
 nnoremap <tab> :e <c-r>=fnameescape(expand('%:p:h'))<cr>/*<c-z>*
 nnoremap <bs> :buffer#<cr>
-nnoremap <space> :Buffers<cr>
-nnoremap <c-l> :ALEToggleBuffer<cr>
+nnoremap <space> :b<space><c-z><c-z>
+
 inoremap <expr> <tab> (col('.') > 1 && strpart(getline('.'), col('.') - 2, 3) =~ '^\w') ?  "\<c-n>" :  "\<tab>"
 inoremap <expr> <s-tab> (col('.') > 1 && strpart(getline('.'), col('.') - 2, 3) =~ '^\w') ?  "\<c-p>" :  "\<tab>"
-
-augroup vimrc
-  autocmd!
-  autocmd BufEnter * if line2byte(expand("$")) > 32 * 1024 | syntax off | else | syntax on | endif
-  autocmd BufEnter * if !exists("b:ale_enabled") | execute "ALEDisableBuffer" | endif
-augroup END
 
 cnoremap <c-a> <home>
 cnoremap <c-e> <end>
@@ -34,7 +28,12 @@ vnoremap H <gv
 vnoremap L >gv
 vnoremap K :m '<-2<cr>gv
 vnoremap J :m '>+1<cr>gv
-xmap ga <Plug>(EasyAlign)
+
+augroup vimrc
+  autocmd!
+  autocmd BufEnter * if line2byte(expand("$")) > 32 * 1024 | syntax off | else | syntax on | endif
+  autocmd BufEnter * if !exists("b:ale_enabled") | execute "ALEDisableBuffer" | endif
+augroup END
 
 " " -----------------------------------------------------------------------------------
 " if empty(glob('~/.vim/autoload/plug.vim'))
@@ -55,6 +54,9 @@ Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 let g:ale_linters = { 'javascript': ['eslint'], 'html': ['htmlhint'], 'css': ['stylelint'] }
+nnoremap <space> :Buffers<cr>
+nnoremap <c-l> :ALEToggleBuffer<cr>
+xmap ga <Plug>(EasyAlign)
 
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
